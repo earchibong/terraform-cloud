@@ -24,6 +24,7 @@ resource "aws_autoscaling_notification" "elizabeth_notifications" {
 #  input        = data.aws_availability_zones.available.names
 #}
 
+#create launch template for bastion
 resource "aws_launch_template" "bastion-launch-template" {
   image_id               = var.ami
   instance_type          = "t2.micro"

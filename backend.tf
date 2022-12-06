@@ -1,17 +1,21 @@
-# Note: The bucket name may not work for you since buckets are unique globally in AWS, so you must give it a unique name.
 
-resource "aws_s3_bucket" "terraform_state" {
+resource "aws_s3_bucket" "terraform-state" {
   bucket = "libby-dev-terraform-bucket"
-  # Enable versioning so we can see the full revision history of our state files
-  versioning {
-    enabled = true
+  force_destroy = true
+}
+
+resource "aws_s3_bucket_versioning" "version" {
+  bucket = aws_s3_bucket.terraform-state.id
+  versioning_configuration {
+    status = "Enabled"
   }
-  # Enable server-side encryption by default
-  server_side_encryption_configuration {
-    rule {
-      apply_server_side_encryption_by_default {
-        sse_algorithm = "AES256"
-      }
+}
+
+resource "aws_s3_bucket_server_side_encryption_configuration" "first" {
+  bucket = aws_s3_bucket.terraform-state.id
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm = "AES256"
     }
   }
 }
