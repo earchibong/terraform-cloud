@@ -1,4 +1,3 @@
-
 # ----------------------------
 #External Load balancer for reverse proxy nginx
 #---------------------------------
@@ -68,7 +67,7 @@ resource "aws_lb" "ialb" {
   subnets = [var.private-sbn-1,
   var.private-sbn-2, ]
 
-  tags = merge(
+    tags = merge(
     var.tags,
     {
       Name = "ACS-int-alb"
@@ -92,12 +91,12 @@ resource "aws_lb_target_group" "wordpress-tgt" {
     unhealthy_threshold = 2
   }
 
-  name        = "wordpress-tgt"
-  port        = 443
+  name     = "wordpress-tgt"
+   port        = 443
   protocol    = "HTTPS"
   target_type = "instance"
   vpc_id      = var.vpc_id
-}
+  }
 
 
 
@@ -114,7 +113,7 @@ resource "aws_lb_target_group" "tooling-tgt" {
     unhealthy_threshold = 2
   }
 
-  name        = "tooling-tgt"
+  name        = "libby-tooling-tgt"
   port        = 443
   protocol    = "HTTPS"
   target_type = "instance"
@@ -138,7 +137,7 @@ resource "aws_lb_listener" "web-listener" {
   }
 }
 
-# # listener rule for tooling target
+# listener rule for tooling target
 
 resource "aws_lb_listener_rule" "tooling-listener" {
   listener_arn = aws_lb_listener.web-listener.arn

@@ -20,28 +20,28 @@ variable "ami-bastion" {
 }
 
 variable "web-sg" {
-  type        = list(any)
+  type = list
   description = "security group for webservers"
 }
 
 variable "bastion-sg" {
-  type        = list(any)
+  type = list
   description = "security group for bastion"
 }
 
 variable "nginx-sg" {
-  type        = list(any)
+  type = list
   description = "security group for nginx"
 }
 
 variable "private_subnets" {
-  type        = list(any)
+  type = list
   description = "first private subnets for internal ALB"
 }
 
 
 variable "public_subnets" {
-  type        = list(any)
+  type = list
   description = "Seconf subnet for ecternal ALB"
 }
 
@@ -52,15 +52,18 @@ variable "ami-nginx" {
 }
 
 variable "nginx-alb-tgt" {
+  type        = string
   description = "nginx reverse proxy target group"
 }
 
 variable "wordpress-alb-tgt" {
+  type        = string
   description = "wordpress target group"
 }
 
 
 variable "tooling-alb-tgt" {
+  type        = string
   description = "tooling target group"
 }
 

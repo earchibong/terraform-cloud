@@ -1,6 +1,6 @@
-# The entire section creates a certificate, public zone, and validates the certificate using DNS method
+# The entire section creates a certiface, public zone, and validate the certificate using DNS method
 
-# Create the certificate using a wildcard for all the domains created in archibong.link
+# Create the certificate using a wildcard for all the domains created in oyindamola.gq
 resource "aws_acm_certificate" "archibong" {
   domain_name       = "*.archibong.link"
   validation_method = "DNS"
@@ -48,6 +48,7 @@ resource "aws_route53_record" "tooling" {
     evaluate_target_health = true
   }
 }
+
 
 # create records for wordpress
 resource "aws_route53_record" "wordpress" {

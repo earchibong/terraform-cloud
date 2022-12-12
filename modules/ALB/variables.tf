@@ -1,10 +1,10 @@
-# The security froup for external loadbalancer
+# The security group for external loadbalancer
 variable "public-sg" {
   description = "Security group for external load balancer"
 }
 
 
-# The public subnet froup for external loadbalancer
+# The public subnet group for external loadbalancer
 variable "public-sbn-1" {
   description = "Public subnets to deploy external ALB"
 }
@@ -38,7 +38,7 @@ variable "ip_address_type" {
 
 variable "load_balancer_type" {
   type        = string
-  description = "the type of Load Balancer"
+  description = "te type of Load Balancer"
 }
 
 variable "tags" {
@@ -49,7 +49,7 @@ variable "tags" {
 
 
 variable "name" {
-  type        = string
-  description = "name of the loadbalancer"
-
+    type = string
+    description = "name of the loadbalancer"
+  
 }
