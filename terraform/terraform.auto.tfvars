@@ -15,15 +15,21 @@ preferred_number_of_public_subnets = 2
 preferred_number_of_private_subnets = 4
 
 tags = {
-  Enviroment      = "production"
+  Enviroment      = "dev"
   Owner-Email     = "hello+@mintedcreative.com"
   Managed-By      = "Terraform"
   Billing-Account = "1234567890"
 }
 
-name = "project18"
+name = "project19"
 
-ami = "ami-09e67e426f25ce0d7"
+ami-web = "ami-0c68a8d6a70ee08fb"
+
+ami-bastion = "ami-03155ab24905dad75"
+
+ami-nginx = "ami-0771c6e0186a87283"
+
+ami-sonar = "ami-099c058ba312a95bd"
 
 keypair = "devops"
 
