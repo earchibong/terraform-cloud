@@ -3,7 +3,7 @@
 #########################
 
 resource "aws_s3_bucket" "terraform-state" {
-  bucket        = "pbl18"
+  bucket        = "pbl19"
   force_destroy = true
 }
 resource "aws_s3_bucket_versioning" "version" {
@@ -39,7 +39,7 @@ module "VPC" {
   vpc_cidr                            = var.vpc_cidr
   enable_dns_support                  = var.enable_dns_support
   enable_dns_hostnames                = var.enable_dns_hostnames
-  enable_classiclink                  = var.enable_classiclink
+  #enable_classiclink                  = var.enable_classiclink
   preferred_number_of_public_subnets  = var.preferred_number_of_public_subnets
   preferred_number_of_private_subnets = var.preferred_number_of_private_subnets
   private_subnets                     = [for i in range(1, 8, 2) : cidrsubnet(var.vpc_cidr, 8, i)]
@@ -69,9 +69,9 @@ module "security" {
 
 module "AutoScaling" {
   source            = "./modules/Autoscaling"
-  ami-web           = var.ami
-  ami-bastion       = var.ami
-  ami-nginx         = var.ami
+  ami-web           = var.ami-web
+  ami-bastion       = var.ami-bastion
+  ami-nginx         = var.ami-nginx
   desired_capacity  = 2
   min_size          = 2
   max_size          = 2
@@ -110,11 +110,11 @@ module "RDS" {
 }
 
 # The Module creates instances for jenkins, sonarqube abd jfrog
-module "compute" {
-  source          = "./modules/compute"
-  ami-jenkins     = var.ami
-  ami-sonar       = var.ami
-  ami-jfrog       = var.ami
+module "Compute" {
+  source          = "./modules/Compute"
+  ami-jenkins     = var.ami-sonar
+  ami-sonar       = var.ami-sonar
+  ami-jfrog       = var.ami-sonar
   subnets-compute = module.VPC.public_subnets-1
   sg-compute      = [module.security.ALB-sg]
   keypair         = var.keypair
