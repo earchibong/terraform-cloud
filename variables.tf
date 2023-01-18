@@ -71,7 +71,7 @@ variable "ami-bastion" {
 
 variable "keypair" {
   type        = string
-  description = "key pair for the instances"
+  description = "key pair for instances"
 }
 
 variable "account_no" {
@@ -87,4 +87,9 @@ variable "master-username" {
 variable "master-password" {
   type        = string
   description = "RDS master password"
+}
+
+variable "environment" {
+  type        = string
+  description = "Enviroment"
 }
