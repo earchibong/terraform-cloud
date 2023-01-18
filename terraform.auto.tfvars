@@ -15,7 +15,7 @@ preferred_number_of_public_subnets = 2
 preferred_number_of_private_subnets = 4
 
 tags = {
-  Enviroment      = "dev"
+  enviroment      = "dev"
   Owner-Email     = "hello+@mintedcreative.com"
   Managed-By      = "Terraform"
   Billing-Account = "1234567890"
@@ -39,3 +39,5 @@ account_no = "350100602815"
 master-username = "libby"
 
 master-password = "devopspbl"
+
+environment = "dev"
