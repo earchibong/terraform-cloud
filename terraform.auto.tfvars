@@ -16,7 +16,7 @@ preferred_number_of_private_subnets = 4
 
 tags = {
   enviroment      = "dev"
-  Owner-Email     = "hello+@mintedcreative.com"
+  Owner-Email     = "hello+@mintedcreati.com"
   Managed-By      = "Terraform"
   Billing-Account = "1234567890"
 }
